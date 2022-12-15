@@ -12,6 +12,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 import static jakarta.persistence.GenerationType.IDENTITY;
 
 
@@ -33,4 +35,6 @@ public class Match {
     @OneToOne
     @JoinColumn(name = "team_two")
     private Team teamTwo;
+    private LocalDateTime dateTime;
+    private String stadium;
 }

@@ -48,7 +48,7 @@ create table play_against
     id_play serial,
     team_one integer,
     team_two integer,
-    date_time date,
+    date_time timestamp,
     stadium varchar,
     primary key(id_play),
     constraint fk_team_one
