@@ -1,3 +1,2 @@
 <img src="/doc/data-base/prog3_td2.png"></img>
-TODO:
-    -
+This project show you the simple organisation of a football matchs.
