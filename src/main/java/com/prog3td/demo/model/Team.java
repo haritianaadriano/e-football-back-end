@@ -24,8 +24,17 @@ public class Team {
     @GeneratedValue(strategy = IDENTITY)
     private int idTeam;
     private String name;
+
+    //players: attribute------------------
     @OneToMany(cascade = CascadeType.ALL)
     private List<Player> players;
+
+    //sponsors: attribute----------------
     @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "have",
+            joinColumns = @JoinColumn(name = "team_id"),
+            inverseJoinColumns = @JoinColumn(name = "sponsor_id")
+    )
     private List<Sponsor> sponsors;
 }

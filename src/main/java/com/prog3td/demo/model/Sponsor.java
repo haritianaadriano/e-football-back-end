@@ -1,14 +1,13 @@
 package com.prog3td.demo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
@@ -24,4 +23,9 @@ public class Sponsor {
     @GeneratedValue(strategy = IDENTITY)
     private int idSponsor;
     private String name;
+
+    //JPA: relation--------------------
+    @Transient
+    @ManyToMany(mappedBy = "sponsors")
+    private List<Team> teams;
 }
