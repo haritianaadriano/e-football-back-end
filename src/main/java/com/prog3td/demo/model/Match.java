@@ -7,25 +7,25 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 import static jakarta.persistence.GenerationType.IDENTITY;
 
+
 @Entity
-@Table(name = "team")
+@Table(name = "play_against")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @Builder
 
-public class Team {
+public class Match {
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    private int idTeam;
-    private String name;
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Player> players;
-    @ManyToMany(cascade = CascadeType.ALL)
-    private List<Sponsor> sponsors;
+    private int idPlayAgainst;
+    @OneToOne
+    @JoinColumn(name = "team_one")
+    private Team teamOne;
+    @OneToOne
+    @JoinColumn(name = "team_two")
+    private Team teamTwo;
 }
