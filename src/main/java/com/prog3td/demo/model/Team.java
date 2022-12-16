@@ -15,6 +15,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Comparator;
 import java.util.List;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
@@ -44,4 +45,11 @@ public class Team {
             joinColumns = @JoinColumn(name = "team_id"),
             inverseJoinColumns = @JoinColumn(name = "sponsor_id"))
     private List<Sponsor> sponsors;
+
+    public static Comparator<Player> playerComparator = new Comparator<Player>() {
+        @Override
+        public int compare(Player o1, Player o2) {
+            return (int) (o1.getNumber() - o2.getNumber());
+        }
+    };
 }

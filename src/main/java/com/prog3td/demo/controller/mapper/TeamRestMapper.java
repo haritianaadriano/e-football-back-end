@@ -3,14 +3,19 @@ package com.prog3td.demo.controller.mapper;
 import com.prog3td.demo.controller.response.Create.CreateTeam;
 import com.prog3td.demo.controller.response.Read.TeamRest;
 import com.prog3td.demo.controller.response.Update.UpdateTeam;
+import com.prog3td.demo.model.Player;
 import com.prog3td.demo.model.Team;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 @Component
 public class TeamRestMapper {
     public TeamRest toRest(Team domain){
+        Collections.sort(domain.getPlayers(), Team.playerComparator);
         return TeamRest.builder()
                 .id(domain.getIdTeam())
                 .name(domain.getName())
