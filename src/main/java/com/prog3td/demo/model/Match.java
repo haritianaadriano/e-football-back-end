@@ -29,12 +29,12 @@ public class Match {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private int idPlay;
+    private LocalDateTime dateTime;
+    private String stadium;
     @OneToOne
     @JoinColumn(name = "team_one")
     private Team teamOne;
     @OneToOne
     @JoinColumn(name = "team_two")
     private Team teamTwo;
-    private LocalDateTime dateTime;
-    private String stadium;
 }
