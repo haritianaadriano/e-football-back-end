@@ -7,7 +7,11 @@ import com.prog3td.demo.controller.response.Update.UpdateMatch;
 import com.prog3td.demo.model.Match;
 import com.prog3td.demo.service.MatchService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
