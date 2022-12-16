@@ -27,8 +27,8 @@ public class PlayerController {
 
     @GetMapping("/players")
     public List<PlayerRest> getPlayers(
-            @RequestParam(name = "page")Long page,
-            @RequestParam(name = "page_size")Long pageSize
+            @RequestParam(name = "page", required = false)Long page,
+            @RequestParam(name = "page_size", required = false)Long pageSize
     ){
         return playerService.getPlayers(page, pageSize).stream()
                 .map(mapper::toRest)
