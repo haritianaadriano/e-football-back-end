@@ -28,7 +28,7 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 public class Match {
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    private int idPlayAgainst;
+    private int idPlay;
     @OneToOne
     @JoinColumn(name = "team_one")
     private Team teamOne;
