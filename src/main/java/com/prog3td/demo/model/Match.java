@@ -28,7 +28,7 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 public class Match {
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    private int idPlay;
+    private Long idPlay;
     private LocalDateTime dateTime;
     private String stadium;
     @OneToOne

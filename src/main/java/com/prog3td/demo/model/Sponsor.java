@@ -26,7 +26,7 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 public class Sponsor {
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    private int idSponsor;
+    private Long idSponsor;
     private String name;
 
     //JPA: relation--------------------

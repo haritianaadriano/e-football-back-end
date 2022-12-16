@@ -304,8 +304,8 @@ components:
       properties:
         name:
           type: string
-    #TODO-7-a: create the appropriate model for category
-    # Must know : a category can be used by some books and a book can have some categories
+        number:
+          type: number
     Category:
       type: object
       properties:

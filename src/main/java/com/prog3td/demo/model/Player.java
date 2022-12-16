@@ -23,7 +23,7 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 public class Player {
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    private int idPlayer;
+    private Long idPlayer;
     private String name;
     private Long number;
 }

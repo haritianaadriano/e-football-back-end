@@ -30,7 +30,7 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 public class Team {
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    private int idTeam;
+    private Long idTeam;
     private String name;
 
     //players: attribute------------------
@@ -42,7 +42,6 @@ public class Team {
     @JoinTable(
             name = "have",
             joinColumns = @JoinColumn(name = "team_id"),
-            inverseJoinColumns = @JoinColumn(name = "sponsor_id")
-    )
+            inverseJoinColumns = @JoinColumn(name = "sponsor_id"))
     private List<Sponsor> sponsors;
 }
