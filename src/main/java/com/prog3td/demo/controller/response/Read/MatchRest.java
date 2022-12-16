@@ -1,23 +1,22 @@
 package com.prog3td.demo.controller.response.Read;
 
-import com.prog3td.demo.model.Player;
-import com.prog3td.demo.model.Sponsor;
+import com.prog3td.demo.model.Team;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
+import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @Builder
-public class RestTeam {
+public class MatchRest {
     private Long id;
-    private String name;
-    private List<Player> players;
-    private List<Sponsor> sponsors;
+    private Team teamOne;
+    private Team teamTwo;
+    private LocalDateTime dateTime;
 }
