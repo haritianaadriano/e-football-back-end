@@ -15,11 +15,12 @@ import java.util.List;
 @Component
 public class TeamRestMapper {
     public TeamRest toRest(Team domain){
-        Collections.sort(domain.getPlayers(), Team.playerComparator);
+        List<Player> playerLists = domain.getPlayers();
+        Collections.sort(playerLists, Team.playerComparator);
         return TeamRest.builder()
                 .id(domain.getIdTeam())
                 .name(domain.getName())
-                .players(domain.getPlayers())
+                .players(playerLists)
                 .sponsors(domain.getSponsors())
                 .build();
     }
