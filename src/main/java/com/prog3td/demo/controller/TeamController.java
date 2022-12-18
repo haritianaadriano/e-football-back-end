@@ -2,7 +2,6 @@ package com.prog3td.demo.controller;
 
 import com.prog3td.demo.controller.mapper.TeamRestMapper;
 import com.prog3td.demo.controller.response.Create.CreateTeam;
-import com.prog3td.demo.controller.response.Read.TeamRest;
 import com.prog3td.demo.controller.response.Update.UpdateTeam;
 import com.prog3td.demo.model.Team;
 import com.prog3td.demo.service.TeamService;

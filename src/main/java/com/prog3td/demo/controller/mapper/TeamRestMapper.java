@@ -1,7 +1,6 @@
 package com.prog3td.demo.controller.mapper;
 
 import com.prog3td.demo.controller.response.Create.CreateTeam;
-import com.prog3td.demo.controller.response.Read.TeamRest;
 import com.prog3td.demo.controller.response.Update.UpdateTeam;
 import com.prog3td.demo.model.Player;
 import com.prog3td.demo.model.Team;
@@ -23,14 +22,8 @@ public class TeamRestMapper {
         return TeamRest.builder()
                 .id(domain.getIdTeam())
                 .name(domain.getName())
-                .players(PLAYERS
-                        .stream()
-                        .map(playerMapper::toTeam)
-                        .toList())
-                .sponsors(domain.getSponsors()
-                        .stream()
-                        .map(sponsorMapper::toTeam)
-                        .toList())
+                .players(PLAYERS)
+                .sponsors(domain.getSponsors())
                 .build();
     }
     public Team toDomain(CreateTeam rest){
