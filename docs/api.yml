@@ -144,6 +144,22 @@ paths:
                   $ref: '#/components/schemas/Team'
         '500':
           description: Internal server error
+  /team/{team_id}:
+    delete:
+      tags:
+        - Teams
+      summary: delete a team
+      operationId: deleteTeam
+      responses:
+        '200':
+          description: return the team deleted
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Team'
+        '403':
+          description: not found
   /players:
     get:
       tags:
