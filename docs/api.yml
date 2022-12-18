@@ -370,10 +370,3 @@ components:
               type: integer
             name:
               type: string
-    Category:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
