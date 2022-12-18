@@ -3,6 +3,35 @@ info:
   version: "latest"
   title: PROG3 - TD2
 paths:
+  /sponsors:
+    get:
+      tags:
+        - Sponsors
+      summary: get all sponsors
+      operationId: getSponsors
+      responses:
+        '200':
+          description: List of sponsors
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Sponsor'
+    post:
+      tags:
+        - Sponsors
+      summary: create sponsors
+      operationId: createSponsor
+      responses:
+        '200':
+          description: List of sponsors created
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CreateSponsor'
   /matchs:
     get:
       tags:
@@ -246,10 +275,15 @@ paths:
           description: Not found
 components:
   schemas:
+    CreateSponsor:
+      type: object
+      properties:
+        name:
+          type: string
     Sponsor:
       type: object
       properties:
-        idSponsor:
+        id:
           type: number
         name:
           type: string
@@ -261,7 +295,7 @@ components:
     Team:
       type: object
       properties:
-        idTeam:
+        id:
           type: number
         name:
           type: string
@@ -276,10 +310,10 @@ components:
     Match:
       type: object
       properties:
+        id:
+          type: number
         dateTime:
           type: string
-        idMatch:
-          type: number
         teamOne:
           items:
             $ref: '#/components/schemas/Team'
@@ -302,14 +336,14 @@ components:
     Player:
       type: object
       properties:
-        idPlayer:
+        id:
           type: number
         name:
           type: string
     UpdatePlayers:
       type: object
       properties:
-        idPlayer:
+        id:
           type: number
         name:
           type: string
