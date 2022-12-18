@@ -30,10 +30,15 @@ public class PlayerRestMapper {
                 .build();
     }
     public Player toDomain(UpdatePlayer rest){
+        Team TEAM = Team.builder()
+                .idTeam(rest.getTeam().getId())
+                .name(rest.getTeam().getName())
+                .build();
         return Player.builder()
                 .idPlayer(rest.getId())
                 .name(rest.getName())
                 .number(rest.getNumber())
+                .team(TEAM)
                 .build();
     }
     public PlayerTeamRest toTeam(Player domain){
