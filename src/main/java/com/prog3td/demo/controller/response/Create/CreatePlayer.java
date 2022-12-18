@@ -1,5 +1,6 @@
 package com.prog3td.demo.controller.response.Create;
 
+import com.prog3td.demo.controller.response.specific.TeamPlayerRest;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,4 +15,5 @@ import lombok.Setter;
 public class CreatePlayer {
     private String name;
     private Long number;
+    private TeamPlayerRest team;
 }

@@ -356,7 +356,17 @@ components:
           type: string
         number:
           type: number
+        team:
+          items:
+            $ref: '#/components/schemas/TeamForPlayer'
     Category:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+    TeamForPlayer:
       type: object
       properties:
         id:
