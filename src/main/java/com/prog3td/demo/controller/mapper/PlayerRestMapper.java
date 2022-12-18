@@ -3,6 +3,7 @@ package com.prog3td.demo.controller.mapper;
 import com.prog3td.demo.controller.response.Create.CreatePlayer;
 import com.prog3td.demo.controller.response.Read.PlayerRest;
 import com.prog3td.demo.controller.response.Update.UpdatePlayer;
+import com.prog3td.demo.controller.response.specific.PlayerTeamRest;
 import com.prog3td.demo.model.Player;
 import org.springframework.stereotype.Component;
 
@@ -25,6 +26,13 @@ public class PlayerRestMapper {
                 .idPlayer(rest.getId())
                 .name(rest.getName())
                 .number(rest.getNumber())
+                .build();
+    }
+    public PlayerTeamRest toTeam(Player domain){
+        return PlayerTeamRest.builder()
+                .id(domain.getIdPlayer())
+                .name(domain.getName())
+                .number(domain.getNumber())
                 .build();
     }
 }

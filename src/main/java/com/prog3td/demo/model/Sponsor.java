@@ -29,8 +29,7 @@ public class Sponsor {
     private Long idSponsor;
     private String name;
 
-    //JPA: relation--------------------
-    @Transient
+    //JPA: relation --------------------
     @ManyToMany(mappedBy = "sponsors")
     private List<Team> teams;
 }

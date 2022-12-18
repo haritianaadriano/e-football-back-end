@@ -9,6 +9,7 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -35,7 +36,7 @@ public class Team {
     private String name;
 
     //players: attribute------------------
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "team")
     private List<Player> players;
 
     //sponsors: attribute----------------

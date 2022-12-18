@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @Builder
 public class MatchRest {
     private Long id;
-    private Team teamOne;
-    private Team teamTwo;
+    private TeamRest teamOne;
+    private TeamRest teamTwo;
     private LocalDateTime dateTime;
 }

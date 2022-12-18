@@ -1,6 +1,7 @@
 package com.prog3td.demo.controller.response.Read;
 
-import com.prog3td.demo.model.Player;
+import com.prog3td.demo.controller.response.specific.PlayerTeamRest;
+import com.prog3td.demo.controller.response.specific.SponsorTeamRest;
 import com.prog3td.demo.model.Sponsor;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,6 +19,6 @@ import java.util.List;
 public class TeamRest {
     private Long id;
     private String name;
-    private List<Player> players;
-    private List<Sponsor> sponsors;
+    private List<PlayerTeamRest> players;
+    private List<SponsorTeamRest> sponsors;
 }
