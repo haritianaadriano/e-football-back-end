@@ -2,7 +2,6 @@ package com.prog3td.demo.controller;
 
 import com.prog3td.demo.controller.mapper.MatchRestMapper;
 import com.prog3td.demo.controller.response.Create.CreateMatch;
-import com.prog3td.demo.controller.response.Read.MatchRest;
 import com.prog3td.demo.controller.response.Update.UpdateMatch;
 import com.prog3td.demo.model.Match;
 import com.prog3td.demo.service.MatchService;
@@ -22,30 +21,23 @@ public class MatchController {
     private MatchRestMapper mapper;
 
     @GetMapping("/matchs")
-    public List<MatchRest> getMatch(){
-        return matchService.getMatch()
-                .stream()
-                .map(mapper::toRest)
-                .toList();
+    public List<Match> getMatch(){
+        return matchService.getMatch();
     }
 
     @PostMapping("/matchs")
-    public List<MatchRest> createMatch(@RequestBody List<CreateMatch> toCreate){
+    public List<Match> createMatch(@RequestBody List<CreateMatch> toCreate){
         List<Match> rest = toCreate.stream()
                 .map(mapper::toDomain)
                 .toList();
-        return matchService.createMatch(rest).stream()
-                .map(mapper::toRest)
-                .toList();
+        return matchService.createMatch(rest);
     }
 
     @PutMapping("/matchs")
-    public List<MatchRest> updateMatch(@RequestBody List<UpdateMatch> toUpdate){
+    public List<Match> updateMatch(@RequestBody List<UpdateMatch> toUpdate){
         List<Match> rest = toUpdate.stream()
                 .map(mapper::toDomain)
                 .toList();
-        return matchService.updateMatch(rest).stream()
-                .map(mapper::toRest)
-                .toList();
+        return matchService.updateMatch(rest);
     }
 }

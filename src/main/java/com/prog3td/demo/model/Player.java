@@ -1,5 +1,6 @@
 package com.prog3td.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -30,6 +31,7 @@ public class Player {
     private Long number;
 
     //JPA: relation ------
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "team_id", nullable = false)
     private Team team;
