@@ -1,6 +1,6 @@
 package com.prog3td.demo.controller.response.Create;
 
-import com.prog3td.demo.controller.response.specific.TeamPlayerRest;
+import com.prog3td.demo.controller.response.Specific.TeamPlayerRest;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

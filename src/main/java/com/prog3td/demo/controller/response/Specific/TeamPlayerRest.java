@@ -1,4 +1,4 @@
-package com.prog3td.demo.controller.response.specific;
+package com.prog3td.demo.controller.response.Specific;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

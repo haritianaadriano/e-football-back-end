@@ -21,7 +21,10 @@ public class TeamController {
 
     @GetMapping("/teams")
     public List<Team> getTeam(){
-        return teamService.getTeam();
+        return teamService.getTeam()
+                .stream()
+                .map(mapper::toRest)
+                .toList();
     }
 
     @PostMapping("/teams")

@@ -95,7 +95,7 @@ paths:
     delete:
       tags:
         - Matchs
-      summary: delete a specific match
+      summary: delete a Specific match
       operationId: deleteMatch
       parameters:
         - in: path
@@ -256,7 +256,7 @@ paths:
     delete:
       tags:
         - Players
-      summary: delete a specific player
+      summary: delete a Specific player
       operationId: deletePlayer
       parameters:
         - in: path
