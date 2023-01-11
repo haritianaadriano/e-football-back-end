@@ -21,12 +21,12 @@ public class TeamRestMapper {
                 .build();
     }
     public Team toRest(Team team){
-        List<Player> PLAYER = team.getPlayers();
-        Collections.sort(PLAYER, Team.playerComparator);
+        //List<Player> PLAYER = team.getPlayers();
+        //Collections.sort(PLAYER, Team.playerComparator);
         return Team.builder()
                 .idTeam(team.getIdTeam())
                 .name(team.getName())
-                .players(PLAYER)
+                .players(team.getPlayers())
                 .sponsors(team.getSponsors())
                 .build();
     }
