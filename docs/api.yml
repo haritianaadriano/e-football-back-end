@@ -3,6 +3,21 @@ info:
   version: "latest"
   title: PROG3 - TD2
 paths:
+  /scores:
+    get:
+      tags:
+        - Scores
+      summary: get all scores, scorer and time of goal
+      operationId: getScores
+      responses:
+        '200':
+          description: List of scores
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Goal'
   /sponsors:
     get:
       tags:
@@ -280,6 +295,26 @@ components:
       properties:
         name:
           type: string
+    Score:
+      type: object
+      properties:
+        id:
+          type: number
+        team_one_scored:
+          type: number
+        team_two_scored:
+          type: number
+    Goal:
+      type: object
+      properties:
+        id:
+          type: number
+        player:
+          items:
+            $ref: '#/components/schemas/Player'
+        score:
+          items:
+            $ref: '#/components/schemas/Score'
     Sponsor:
       type: object
       properties:
