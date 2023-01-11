@@ -1,12 +1,7 @@
 package com.prog3td.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -33,10 +28,10 @@ public class Match {
     private LocalDateTime dateTime;
     @JsonIgnore
     private String stadium;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "team_one")
     private Team teamOne;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "team_two")
     private Team teamTwo;
 }
