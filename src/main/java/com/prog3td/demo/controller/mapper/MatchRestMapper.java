@@ -14,7 +14,7 @@ public class MatchRestMapper {
         return Match.builder()
                 .teamOne(rest.getTeamOne())
                 .teamTwo(rest.getTeanTwo())
-                .dateTime(rest.getDateTime())
+                .date(rest.getDate())
                 .stadium(rest.getStadium())
                 .build();
     }
@@ -24,7 +24,7 @@ public class MatchRestMapper {
                 .teamOne(rest.getTeamOne())
                 .teamTwo(rest.getTeamTwo())
                 .stadium(rest.getStadium())
-                .dateTime(rest.getDateTime())
+                .date(rest.getDate())
                 .build();
     }
 }
