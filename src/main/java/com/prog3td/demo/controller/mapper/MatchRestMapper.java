@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 @Component
 @AllArgsConstructor
 public class MatchRestMapper {
-
     public Match toDomain(CreateMatch rest){
         return Match.builder()
                 .teamOne(rest.getTeamOne())

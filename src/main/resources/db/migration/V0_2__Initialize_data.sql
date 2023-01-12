@@ -7,7 +7,7 @@ insert into sponsor (name) values
 ('coca cola'), ('bombom anglais'), ('addidas'), ('nike');
 
 --3.insert into player table
-insert into "player" (name, number, poste, team_id) values
+insert into "player" (name, number, position, team_id) values
 ('ronaldo', 7, 'AILIER', 1), ('messi', 10, 'AILIER', 3), ('aguero', 9, 'ATTAQUANT', 5), ('string', 1, 'GARDIEN', 3),
 ('modric', 10, 'MILLIEU', 1), ('neuer', 10, 'GARDIEN', 6), ('rodrigo de paul', 19, 'MILLIEU', 5), ('guardiola', 4, 'DEFENSE', 5);
 

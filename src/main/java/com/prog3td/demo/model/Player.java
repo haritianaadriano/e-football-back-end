@@ -2,6 +2,8 @@ package com.prog3td.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -29,10 +31,15 @@ public class Player {
     private Long idPlayer;
     private String name;
     private Long number;
-
+    @Enumerated(EnumType.ORDINAL)
+    private Poste position;
     //JPA: relation ------
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "team_id", nullable = false)
     private Team team;
+
+    public enum Poste{
+        DEFENSE, ATTAQUANT, GARDIEN, MILLIEU, AILIER
+    }
 }
