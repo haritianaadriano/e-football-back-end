@@ -24,8 +24,8 @@ create table "player"
     id_player serial,
     name varchar,
     number integer,
-    team_id integer,
     poste post,
+    team_id integer,
     primary key (id_player),
     constraint fk_team_id
         foreign key(team_id)
@@ -47,28 +47,15 @@ create table "have"
         references team(id_team)
 );
 
---//.creating score table
-create table score
-(
-    id_score serial,
-    team_one_scored integer,
-    team_two_scored integer,
-    primary key(id_score)
-);
-
 --5.creating play_against relation to table
 create table play_against
 (
     id_play serial,
     team_one integer,
     team_two integer,
-    score_id integer,
     date_time timestamp,
     stadium varchar,
     primary key(id_play),
-    constraint fk_score
-        foreign key(score_id)
-        references score(id_score),
     constraint fk_team_one
         foreign key(team_one)
         references team(id_team),
@@ -77,17 +64,18 @@ create table play_against
         references team(id_team)
 );
 
---7.creating goal relation to table
-create table goal
+--6.creating score table
+create table "score"
 (
-    id_goal serial,
+    id_score serial,
     time integer,
+    CSC boolean,
     player_id integer,
-    score_id integer,
+    match_id integer,
+    constraint fk_match
+        foreign key(match_id)
+        references play_against(id_play),
     constraint fk_player
         foreign key(player_id)
-        references player(id_player),
-    constraint fk_score
-        foreign key(score_id)
-        references score(id_score)
+        references player(id_player)
 );

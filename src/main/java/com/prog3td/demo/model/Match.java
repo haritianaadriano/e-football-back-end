@@ -32,6 +32,7 @@ public class Match {
     private Long idPlay;
     private LocalDateTime dateTime;
     private String stadium;
+    private String score;
     @ManyToOne
     @JoinColumn(name = "team_one")
     private Team teamOne;
