@@ -63,7 +63,7 @@ create table play_against
     team_one integer,
     team_two integer,
     score_id integer,
-    date date,
+    date_time timestamp,
     stadium varchar,
     primary key(id_play),
     constraint fk_score

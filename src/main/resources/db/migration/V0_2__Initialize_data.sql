@@ -16,8 +16,8 @@ insert into score (team_one_scored, team_two_scored) values
 (3,2), (4,3);
 
 --4.insert into play_against table
-insert into play_against (team_one, team_two, date, stadium, score_id) values
-(1, 3, '2020-06-22', 'qatar', 2), (1, 5, '2019-05-14', 'manchester', 1);
+insert into play_against (team_one, team_two, date_time, stadium, score_id) values
+(1, 3, '2017-09-03T10:15:30', 'qatar', 2), (1, 5, '2015-05-14T19:30:15', 'manchester', 1);
 
 --5.inert into goal table
 insert into goal (player_id, score_id, time) values

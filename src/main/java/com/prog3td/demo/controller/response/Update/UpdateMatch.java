@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,7 +17,7 @@ import java.time.LocalDate;
 @Builder
 public class UpdateMatch {
     private Long id;
-    private LocalDate date;
+    private LocalDateTime dateTime;
     private String stadium;
     private Team teamOne;
     private Team teamTwo;

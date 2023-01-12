@@ -13,7 +13,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
@@ -30,8 +30,7 @@ public class Match {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long idPlay;
-    private LocalDate date;
-    @JsonIgnore
+    private LocalDateTime dateTime;
     private String stadium;
     @ManyToOne
     @JoinColumn(name = "team_one")
