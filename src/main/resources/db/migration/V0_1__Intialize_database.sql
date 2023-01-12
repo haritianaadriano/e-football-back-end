@@ -47,19 +47,47 @@ create table "have"
         references team(id_team)
 );
 
+--//.creating score table
+create table score
+(
+    id_score serial,
+    team_one_scored integer,
+    team_two_scored integer,
+    primary key(id_score)
+);
+
 --5.creating play_against relation to table
 create table play_against
 (
     id_play serial,
     team_one integer,
     team_two integer,
-    date_time timestamp,
+    score_id integer,
+    date date,
     stadium varchar,
     primary key(id_play),
+    constraint fk_score
+        foreign key(score_id)
+        references score(id_score),
     constraint fk_team_one
         foreign key(team_one)
         references team(id_team),
     constraint fk_team_two
         foreign key(team_two)
         references team(id_team)
+);
+
+--7.creating goal relation to table
+create table goal
+(
+    id_goal serial,
+    time integer,
+    player_id integer,
+    score_id integer,
+    constraint fk_player
+        foreign key(player_id)
+        references player(id_player),
+    constraint fk_score
+        foreign key(score_id)
+        references score(id_score)
 );

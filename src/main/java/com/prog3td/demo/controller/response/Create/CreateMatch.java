@@ -7,7 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @Setter
 @Builder
 public class CreateMatch {
-    private LocalDateTime dateTime;
+    private LocalDate date;
     private String stadium;
     private Team teamOne;
     private Team teanTwo;
