@@ -1,3 +1,7 @@
+--Creating the enum list for "post" values
+create type post as enum
+    ('GARDIEN', 'DEFENSE', 'MILLIEU', 'AILIER', 'ATTAQUANT');
+
 --1.begin with creating the team table
 create table "team"
 (
@@ -21,6 +25,7 @@ create table "player"
     name varchar,
     number integer,
     team_id integer,
+    poste post,
     primary key (id_player),
     constraint fk_team_id
         foreign key(team_id)
