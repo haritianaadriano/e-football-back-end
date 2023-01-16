@@ -31,8 +31,10 @@ public class Player {
     private Long idPlayer;
     private String name;
     private Long number;
-    @Enumerated(EnumType.ORDINAL)
+
+    @Enumerated(EnumType.STRING)
     private Poste position;
+
     //JPA: relation ------
     @JsonIgnore
     @ManyToOne

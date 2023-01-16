@@ -31,12 +31,12 @@ public class Match {
     private Long idPlay;
     private LocalDateTime dateTime;
     private String stadium;
+
     @ManyToOne
     @JoinColumn(name = "team_one")
     private Team teamOne;
+
     @ManyToOne
     @JoinColumn(name = "team_two")
     private Team teamTwo;
-    @Transient
-    private String score;
 }

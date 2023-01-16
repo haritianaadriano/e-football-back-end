@@ -23,9 +23,11 @@ public class Score {
     @GeneratedValue(strategy = IDENTITY)
     private Long idScore;
     private Long time;
+
     @ManyToOne
     @JoinColumn(name = "player_id")
     private Player player;
+
     //not appear on api
     @JsonIgnore
     @ManyToOne
