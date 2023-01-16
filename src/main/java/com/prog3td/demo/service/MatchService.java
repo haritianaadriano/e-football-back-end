@@ -18,45 +18,8 @@ public class MatchService {
     private ScoreRepository scoreRepository;
 
     //GET
-    public List<MatchRest> getMatch(){
-        List<Match> allMatches = matchRepository.findAll();
-        List<MatchRest> rest = new ArrayList<>();
-        for(Match match : allMatches){
-            List<Score> scorers = scoreRepository.findAll()
-                    .stream()
-                    .filter(score -> {
-                        return score.getMatch().getIdPlay().equals(match.getIdPlay());
-                    })
-                    .toList();
-
-            List<Score> TEAM_ONE_SCORERS = scorers
-                    .stream()
-                    .filter(score -> {
-                        return score.getPlayer().getTeam().getIdTeam().equals(match.getTeamOne().getIdTeam());
-                    })
-                    .toList();
-
-            List<Score> TEAM_TWO_SCORERS = scorers
-                    .stream()
-                    .filter(score -> {
-                        return score.getPlayer().getTeam().getIdTeam().equals(match.getTeamTwo().getIdTeam());
-                    })
-                    .toList();
-
-            String SCORE = TEAM_ONE_SCORERS.size() + ":" + TEAM_TWO_SCORERS.size();
-
-            MatchRest matchRest = new MatchRest();
-            matchRest.setId(match.getIdPlay());
-            matchRest.setStadium(match.getStadium());
-            matchRest.setDateTime(match.getDateTime());
-            matchRest.setTeamOne(match.getTeamOne());
-            matchRest.setTeamTwo(match.getTeamTwo());
-            matchRest.setTeamOneScorers(TEAM_ONE_SCORERS);
-            matchRest.setTeamTwoScorers(TEAM_TWO_SCORERS);
-            matchRest.setScore(SCORE);
-            rest.add(matchRest);
-        }
-        return rest;
+    public List<Match> getMatch(){
+        return matchRepository.findAll();
     }
     //POST
     public List<Match> createMatch(List<Match> toCreate){
@@ -65,5 +28,16 @@ public class MatchService {
     //PUT
     public List<Match> updateMatch(List<Match> toUpdate){
         return matchRepository.saveAll(toUpdate);
+    }
+
+    //function who is going to search match relation with team and score
+    public List<Score> findScore(Long idMatch, Long idTeam){
+        Match thisMatch = matchRepository.findById(idMatch)
+                .orElseThrow(()->new NullPointerException("match not found"));
+        List<Score> scoreByMatch = scoreRepository.findAllByMatch(thisMatch);
+        return scoreByMatch
+                .stream()
+                .filter(score -> score.getPlayer().getTeam().equals(idTeam))
+                .toList();
     }
 }

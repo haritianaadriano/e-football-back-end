@@ -23,7 +23,6 @@ public class Score {
     @GeneratedValue(strategy = IDENTITY)
     private Long idScore;
     private Long time;
-    private boolean CSC;
     @ManyToOne
     @JoinColumn(name = "player_id")
     private Player player;
