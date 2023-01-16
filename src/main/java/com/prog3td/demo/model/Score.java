@@ -18,6 +18,7 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @Setter
 @Builder
 public class Score {
+    @JsonIgnore
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long idScore;

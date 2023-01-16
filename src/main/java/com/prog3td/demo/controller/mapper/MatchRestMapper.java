@@ -1,6 +1,7 @@
 package com.prog3td.demo.controller.mapper;
 
 import com.prog3td.demo.controller.response.Create.CreateMatch;
+import com.prog3td.demo.controller.response.Read.MatchRest;
 import com.prog3td.demo.controller.response.Update.UpdateMatch;
 import com.prog3td.demo.model.Match;
 import lombok.AllArgsConstructor;
@@ -24,6 +25,15 @@ public class MatchRestMapper {
                 .teamTwo(rest.getTeamTwo())
                 .stadium(rest.getStadium())
                 .dateTime(rest.getDateTime())
+                .build();
+    }
+    public MatchRest toRest(Match domain){
+        return MatchRest.builder()
+                .id(domain.getIdPlay())
+                .stadium(domain.getStadium())
+                .dateTime(domain.getDateTime())
+                .teamHome()
+                .teamAway()
                 .build();
     }
 }

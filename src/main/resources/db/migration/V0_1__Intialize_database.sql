@@ -1,6 +1,6 @@
 --Creating the enum list for "post" values
 create type poste as enum
-    ('GARDIEN', 'DEFENSE', 'MILLIEU', 'AILIER', 'ATTAQUANT');
+    ('DEFENSE', 'ATTAQUANT', 'GARDIEN', 'MILLIEU', 'AILIER');
 
 --1.begin with creating the team table
 create table "team"

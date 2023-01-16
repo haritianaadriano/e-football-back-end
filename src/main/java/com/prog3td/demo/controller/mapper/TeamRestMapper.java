@@ -1,7 +1,7 @@
 package com.prog3td.demo.controller.mapper;
 
 import com.prog3td.demo.controller.response.Create.CreateTeam;
-import com.prog3td.demo.model.Player;
+import com.prog3td.demo.controller.response.Read.TeamRest;
 import com.prog3td.demo.model.Team;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -13,6 +13,7 @@ import java.util.List;
 @Component
 @AllArgsConstructor
 public class TeamRestMapper {
+    private PlayerRestMapper playerRestMapper;
     public Team toDomain(CreateTeam rest){
         return Team.builder()
                 .name(rest.getName())
@@ -28,6 +29,16 @@ public class TeamRestMapper {
                 .name(team.getName())
                 .players(team.getPlayers())
                 .sponsors(team.getSponsors())
+                .build();
+    }
+    public TeamRest toMatch(Team domain){
+        TeamRest.builder()
+                .id(domain.getIdTeam())
+                .name(domain.getName())
+                .score()
+                .players(domain.getPlayers().stream().map(playerRestMapper::toRest).toList())
+                .scorers()
+                .sponsors(domain.getSponsors())
                 .build();
     }
 }

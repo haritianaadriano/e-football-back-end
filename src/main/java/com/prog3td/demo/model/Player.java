@@ -42,4 +42,7 @@ public class Player {
     public enum Poste{
         DEFENSE, ATTAQUANT, GARDIEN, MILLIEU, AILIER
     }
+    public boolean isGuardian(){
+        return position == Poste.GARDIEN;
+    }
 }
