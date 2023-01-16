@@ -1,6 +1,8 @@
 package com.prog3td.demo.service;
 
+import com.prog3td.demo.model.Score;
 import com.prog3td.demo.model.Team;
+import com.prog3td.demo.repository.ScoreRepository;
 import com.prog3td.demo.repository.TeamRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -25,5 +27,4 @@ public class TeamService {
         return teamRepository.saveAll(toUpdate);
     }
     //DELETE
-
 }

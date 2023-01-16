@@ -2,6 +2,7 @@ package com.prog3td.demo.controller;
 
 import com.prog3td.demo.controller.mapper.MatchRestMapper;
 import com.prog3td.demo.controller.response.Create.CreateMatch;
+import com.prog3td.demo.controller.response.Read.MatchRest;
 import com.prog3td.demo.controller.response.Update.UpdateMatch;
 import com.prog3td.demo.model.Match;
 import com.prog3td.demo.service.MatchService;
@@ -21,8 +22,10 @@ public class MatchController {
     private MatchRestMapper mapper;
 
     @GetMapping("/matchs")
-    public List<Match> getMatch(){
-        return matchService.getMatch();
+    public List<MatchRest> getMatch(){
+        return matchService.getMatch().stream()
+                .map(mapper::toRest)
+                .toList();
     }
 
     @PostMapping("/matchs")

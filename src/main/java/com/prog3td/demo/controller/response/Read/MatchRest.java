@@ -1,13 +1,11 @@
-package com.prog3td.demo.controller.response.Create;
+package com.prog3td.demo.controller.response.Read;
 
-import com.prog3td.demo.model.Team;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @AllArgsConstructor
@@ -15,9 +13,10 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Builder
-public class CreateMatch {
+public class MatchRest {
+    private Long id;
     private LocalDateTime dateTime;
     private String stadium;
-    private Team teamOne;
-    private Team teanTwo;
+    private TeamRest teamHome;
+    private TeamRest teamAway;
 }

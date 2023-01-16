@@ -337,7 +337,10 @@ components:
           type: string
         CSC:
           type: boolean
-        player:
+        team_one:
+          items:
+            $ref: '#/components/schemas/Player'
+        team_two:
           items:
             $ref: '#/components/schemas/Player'
     CreateMatch:

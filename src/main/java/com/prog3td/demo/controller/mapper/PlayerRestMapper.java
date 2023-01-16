@@ -15,6 +15,7 @@ public class PlayerRestMapper {
         return PlayerRest.builder()
                 .id(domain.getIdPlayer())
                 .name(domain.getName())
+                .isGuardian(domain.isGuardian())
                 .build();
     }
     public Player toDomain(CreatePlayer rest){
