@@ -31,13 +31,13 @@ public class TeamRestMapper {
                 .sponsors(team.getSponsors())
                 .build();
     }
-    public TeamRest toMatch(Team domain){
+    public TeamRest toMatch(Team domain, Long idMatch){
         return TeamRest.builder()
                 .id(domain.getIdTeam())
                 .name(domain.getName())
-                .score(0)
+                .score(matchService.countScore(matchService.findScorers(idMatch, domain.getIdTeam())))
                 .players(domain.getPlayers().stream().map(playerRestMapper::toRest).toList())
-                .scorers()
+                .scorers(matchService.findScorers(idMatch, domain.getIdTeam()))
                 .sponsors(domain.getSponsors())
                 .build();
     }
