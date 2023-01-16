@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 @AllArgsConstructor
 public class MatchRestMapper {
+    private TeamRestMapper teamRestMapper;
     public Match toDomain(CreateMatch rest){
         return Match.builder()
                 .teamOne(rest.getTeamOne())
@@ -32,8 +33,8 @@ public class MatchRestMapper {
                 .id(domain.getIdPlay())
                 .stadium(domain.getStadium())
                 .dateTime(domain.getDateTime())
-                .teamHome()
-                .teamAway()
+                .teamHome(teamRestMapper.toMatch(domain.getTeamOne(), domain.getIdPlay()))
+                .teamAway(teamRestMapper.toMatch(domain.getTeamTwo(), domain.getIdPlay()))
                 .build();
     }
 }

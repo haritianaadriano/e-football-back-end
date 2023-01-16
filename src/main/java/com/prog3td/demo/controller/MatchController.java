@@ -23,7 +23,9 @@ public class MatchController {
 
     @GetMapping("/matchs")
     public List<MatchRest> getMatch(){
-        return matchService.getMatch();
+        return matchService.getMatch().stream()
+                .map(mapper::toRest)
+                .toList();
     }
 
     @PostMapping("/matchs")
