@@ -1,3 +1,5 @@
+package com.prog3td.demo.controller.exception;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -10,21 +12,21 @@ import java.util.Date;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(NotFoundException.class)
-    public ResponseEntity<ErrorDetailsFormat> NotFoundExceptionHandling(NotFoundException exception, WebRequest request){
+    public ResponseEntity<ErrorDetailsFormat> NotFoundExceptionHandling(NotFoundException exception, WebRequest request) {
         ErrorDetailsFormat errorDetailsFormat =
                 new ErrorDetailsFormat(new Date(), exception.getMessage(), request.getDescription(false));
         return new ResponseEntity<>(errorDetailsFormat, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(BadRequestException.class)
-    public ResponseEntity<ErrorDetailsFormat> BadRequestExceptionHandling(BadRequestException exception, WebRequest request){
+    public ResponseEntity<ErrorDetailsFormat> BadRequestExceptionHandling(BadRequestException exception, WebRequest request) {
         ErrorDetailsFormat errorDetailsFormat =
                 new ErrorDetailsFormat(new Date(), exception.getMessage(), request.getDescription(false));
         return new ResponseEntity<>(errorDetailsFormat, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ErrorDetailsFormat> GlobalExceptionHandling(Exception exception, WebRequest request){
+    public ResponseEntity<ErrorDetailsFormat> GlobalExceptionHandling(Exception exception, WebRequest request) {
         ErrorDetailsFormat errorDetailsFormat =
                 new ErrorDetailsFormat(new Date(), exception.getMessage(), request.getDescription(false));
         return new ResponseEntity<>(errorDetailsFormat, HttpStatus.INTERNAL_SERVER_ERROR);
